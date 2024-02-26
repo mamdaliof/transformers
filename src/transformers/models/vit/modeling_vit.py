@@ -185,6 +185,8 @@ class ViTPatchEmbeddings(nn.Module):
 class ViTSelfAttention(nn.Module):
     def __init__(self, config: ViTConfig) -> None:
         super().__init__()
+        
+        # NOTE: i think we should modify the followint if
         if config.hidden_size % config.num_attention_heads != 0 and not hasattr(config, "embedding_size"):
             raise ValueError(
                 f"The hidden size {config.hidden_size,} is not a multiple of the number of attention "
@@ -376,6 +378,8 @@ class ViTEncoder(nn.Module):
     def __init__(self, config: ViTConfig) -> None:
         super().__init__()
         self.config = config
+
+        
         self.layer = nn.ModuleList([ViTLayer(config) for _ in range(config.num_hidden_layers)])
         self.gradient_checkpointing = False
 
@@ -392,6 +396,7 @@ class ViTEncoder(nn.Module):
 
         for i, layer_module in enumerate(self.layer):
             if output_hidden_states:
+                print("hi")
                 all_hidden_states = all_hidden_states + (hidden_states,)
 
             layer_head_mask = head_mask[i] if head_mask is not None else None
