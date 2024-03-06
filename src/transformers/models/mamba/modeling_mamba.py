@@ -56,8 +56,6 @@ is_fast_path_available = all(
 _CHECKPOINT_FOR_DOC = "ArthurZ/mamba-130m"
 _CONFIG_FOR_DOC = "MambaConfig"
 
-MAMBA_PRETRAINED_MODEL_ARCHIVE_LIST = []  # See all Mamba models at https://huggingface.co/models?filter=mamba
-
 
 class MambaMixer(nn.Module):
     """
