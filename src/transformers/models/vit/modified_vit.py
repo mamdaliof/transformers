@@ -3,12 +3,12 @@ from torchvision.models import resnet50, ResNet50_Weights
 import math
 import torch
 import torch.nn as nn
-from transformers import ViTConfig
+from .configuration_vit import ViTConfig
 from collections import OrderedDict 
 from typing import Optional, Tuple, Union
-from src.transformers.activations import ACT2FN
-from src.transformers.modeling_outputs import BaseModelOutput
-from src.transformers.models.vit.modeling_vit import ViTEmbeddings 
+from ...activations import ACT2FN
+from ...modeling_outputs import BaseModelOutput
+from .modeling_vit import ViTEmbeddings 
 
 # %% [markdown]
 # # Model
